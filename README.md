@@ -2,6 +2,17 @@
 
 [![Build Status](https://travis-ci.org/msiemczyk/cobertura.svg?branch=master)](https://travis-ci.org/msiemczyk/cobertura)
 
+## solve mvn install error
+```
+[ERROR] Failed to execute goal org.codehaus.mojo:findbugs-maven-plugin:3.0.3:findbugs (findbugs) on project cobertura-parent: Unable to parse configuration of mojo org.codehaus.mojo:findbugs-maven-plugin:3.0.3:findbugs for parameter pluginArtifacts: Cannot assign configuration entry 'pluginArtifacts' with value '${plugin.artifacts}' of type java.util.Collections.UnmodifiableRandomAccessList to property of type java.util.ArrayList -> [Help 1]
+```
+
+solve: do not use maven 3.6
+```
+mvn -N io.takari:maven:wrapper -Dmaven=3.5.4
+./mvnw clean install -DskipTests=true
+```
+
 ## ABOUT
 Cobertura is a free Java code coverage reporting tool.  It is
 based on jcoverage 1.0.5.  See the [Cobertura web page](http://cobertura.sourceforge.net/)
